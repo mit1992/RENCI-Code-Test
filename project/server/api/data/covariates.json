@@ -1,0 +1,40 @@
+{
+    "Patient": {
+	"0": "Mickey",
+	"1": "Pluto",
+	"2": "Minnie",
+	"3": "Donald",
+	"4": "Goofy",
+	"5": "Daisy",
+	"6": "Clarabelle",
+	"7": "Pete",
+	"8": "Horace",
+	"9": "Tom",
+	"10": "Oswald",
+	"11": "Mickey",
+	"12": "Donald",
+	"13": "Donald",
+	"14": "",
+	"15": "Goofy",
+	"16": "abcd"
+    },
+    "Drug": {
+	"0": "Ibuprofen", 
+	"1": "Aspirin", 
+	"2": "Ibuprofen",
+	"3": "Tylenol", 
+	"4": "Tylenol",
+	"5": "Ibuprofen",
+	"6": "Tylenol",
+	"7": "Ibuprofen",
+	"8": "Aspirin",
+	"9": "Tylenol",
+	"10": "Aspirin",
+	"11": "Ibuprofen",
+	"12": "Tylenol",
+	"13": "",
+	"14": "Aspirin",
+	"15": "Tylenol Tablet",
+	"16": "abcd"
+    }
+}

@@ -1,0 +1,112 @@
+
+Your mission, should you choose to accept it, is to flex your
+full-stack developer skills by implementing:
+
+A) An interactive component on a browser-based Client that can
+retrieve pre-processed patient information from a server that may or
+may not live on a separate machine
+
+B) A server endpoint that will pre-process and serve up information to
+any browser-based client.
+
+ARCHITECTURE
+
+  Client (React)
+  +----------------+
+  |(add component) |
+  +----------------+
+       |
+       |    Server (Python/Flask)
+       |    +----------------+
+       |----|(add endpoint)  |
+            +----------------+
+
+PROVIDED:
+
+You are welcome to use the containerized browser-based client and
+Flask-based server included here, or bring your own as you prefer. You
+must use the data in covariates.json.
+
+Your Server endpoint will present data it reads from a JSON (formated
+like a dataframe) and pre-process that data, binning it for use in a
+client-side interactive bar chart.
+
+INPUTS:
+
+A 'Drug' can be assigned to more than one 'Patient', but there should
+be only one 'Patient'.
+
+REQUIREMENTS:
+
+__Client__: Retrieves data from a server and draws the data as a bar
+chart. When the user clicks on a bar, highlight the bar in some way
+(color, outline, etc.) and display the value in a separate text field
+below the bar chart.
+
+__Server__: Provides a single RESTful endpoint, ‘GET /get_counts’, for
+retrieving data from the single table in the server’s database. Each
+patient, drug pair should count only once. Beware of missing data,
+test data, and same drugs with different names.
+
+Please containerize (Docker) both the client and server applications,
+we will use docker to assess your solution.
+
+  ** ENDPOINTS
+
+  Only GET requests are required:
+
+  + PROVIDED>>>> http://${TX_SERVER_HOST}:${TX_SERVER_PORT}/ Returns a
+    simple screen demonstrating successful server deployment 
+
+  + PROVIDED>>>> http://${TX_SERVER_HOST}:${TX_SERVER_PORT}/get_raw
+    Returns the serialized dataframe in
+    project/server/api/data/covariates.json 
+
+  + Please add>> http://${TX_SERVER_HOST}:${TX_SERVER_PORT}/get_counts 
+    Returns the data from covariates, with columns 'Drug' and 'Count'
+
+  ** END USER APPLICATION
+
+  + PROVIDED>>>> http://${TX_CLIENT_HOST}:${TX_CLIENT_PORT}
+
+    Reads from http://${TX_SERVER_HOST}:${TX_SERVER_PORT}/get_raw and
+    presents a table of Patient names and IDs
+
+  + Please add>> Barchart component
+
+    Reads from http://${TX_SERVER_HOST}:${TX_SERVER_PORT}/get_counts
+    and presents a bar chart with 'Drug' on X-axis, 'Count' on
+    y-axis. When the user clicks on a bar, highlight the bar in some
+    way (color, outline, etc.) and display the value in a separate
+    text field below the bar chart.
+
+
+TESTING:
+
+Please design a unit test for the function you use to aggregate the
+data, using test framework of your choosing.
+
+There is a bug we have observed in the existing code: once in about
+100 trials, the Server times out instead of returning get_raw. If you
+see the bug, please fix it if you can.
+
+Like real clinical data, you may find these rules are broken, and
+there may be evident missing, inconsistent or incorrect data. Please
+correct these are you are able.
+
+ASSESSMENT:
+
+We should be able to build both applications with 'docker build' and
+run it with 'docker run'; We should be able to browse endpoints with
+'http://${TX_SERVER_HOST}:${$TX_SERVER_PORT}' and
+'http://${TX_CLIENT_HOST}:${$TX_CLIENT_PORT}'. We will use docker
+v19.03, CentOS Linux 7 to build and test your code.
+
+Aside from a working application, we will also be using your git
+commit history to understand your development process. We hope to find
+a sequence of clear and helpful commit messages that represent units
+of understandable work.
+
+Lastly, please provide a Testing.md file with any documentation
+necessary to understand and run your test, and how developers can
+contribute their tests.

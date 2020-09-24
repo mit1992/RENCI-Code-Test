@@ -1,7 +1,8 @@
 import React from "react";
 import './App.css';
 import { Container } from "semantic-ui-react";
-import { Table} from "./components/Table";
+import { Table } from "./components/Table";
+import {ChartContainer} from './components/ChartContainer';
 
 
 // Want to build this App?
@@ -11,7 +12,8 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Table/>
+        <Table />
+        <ChartContainer />
       </Container>
     </div>
   );

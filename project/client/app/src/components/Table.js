@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 export const Table = ()=> {
     const [patients, setPatients] = useState("");
     useEffect(() => {
+		
 	fetch(process.env.REACT_APP_DATA_HOST + '/get_raw').then(response =>
 			response.json().then(data => {
 			    setPatients(data.Patient);

@@ -38,3 +38,8 @@ html, body {
 #result {
   color: #000;
 }
+
+
+.App .ui.contanier{
+ display: flex;
+}

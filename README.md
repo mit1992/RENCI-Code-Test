@@ -44,11 +44,15 @@ You can also run each application individually with docker:
   docker build --tag  client:1.0 .
   docker run -e REACT_APP_DATA_HOST="http://${TX_SERVER_HOST}:${TX_SERVER_PORT}" \
           -e TX_CLIENT_HOST -e TX_CLIENT_PORT -h ${TX_CLIENT_HOST} --rm -it -p ${TX_CLIENT_PORT}:${TX_CLIENT_PORT} client:1.0
+
+ USE 0.0.0.0 instead of localhost for client
+
   popd
   #server:
   pushd project/server
   docker build --tag  server:1.0 .
   docker run -e TX_SERVER_HOST -e TX_SERVER_PORT -h ${TX_SERVER_HOST} --rm -it -p ${TX_SERVER_PORT}:${TX_SERVER_PORT} server:1.0
+
   popd
 ```
 Or without docker:
